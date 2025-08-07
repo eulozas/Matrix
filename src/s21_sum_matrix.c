@@ -7,7 +7,7 @@ int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result){
 
     int exit_code = 0;
 
-    if(A->columns != B->columns || A->rows != B->rows){
+    if(A->columns != B->columns || A->rows != B->rows || A->rows != result->rows || A->columns != result->columns){
         exit_code = 2;
     }
 
