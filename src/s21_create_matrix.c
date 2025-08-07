@@ -17,8 +17,13 @@ int s21_create_matrix(int rows, int columns, matrix_t *result){
         result->matrix[i] = malloc(result->columns * sizeof(double));
         if(!result->matrix[i]){
             exit_code = 1;
+            for (int j = 0; j < i; j++) {
+                free(result->matrix[j]);
+            }
+            free(result->matrix);
+            result->matrix = NULL;
         }
     }
-    
+
     return exit_code;
 }
