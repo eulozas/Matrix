@@ -13,3 +13,12 @@ s21_is_zero_matrix(matrix_t *A){
 
     return exit_code;
 }
+
+
+void s21_copy_matrix(matrix_t *A, matrix_t *B){
+    for(int i = 0; i < A->rows; i++){
+        for(int j = 0; j < A->columns; j++){
+            B->matrix[i][j] = A->matrix[i][j];
+        }
+    }
+}
