@@ -1,8 +1,10 @@
 #include "s21_matrix.h"
+#include "s21_helpers.h"
+#include <stdio.h>
 
 int s21_determinant(matrix_t *A, double *result){
     if(!A || !result){
-    return 1;
+        return 1;
     }
 
     int exit_code = 0;
@@ -13,7 +15,8 @@ int s21_determinant(matrix_t *A, double *result){
     if(!exit_code){
         if(A->rows == 1 && A->columns == 1){
             *result = A->matrix[0][0];
-            //еще если хоть один ряд\строка заполнены нулями, то определитель ноль, написать ф-цию проверки
+        }else if(zero_row_col_check(A)){
+            *result = 0.0;
         }else{
             matrix_t B;
             exit_code = s21_create_matrix(A->rows, A->columns, &B);
@@ -21,16 +24,14 @@ int s21_determinant(matrix_t *A, double *result){
                 s21_copy_matrix(A, &B);
                 double mul = 0;
                 matrix_t vector_str;
-                matrix_t vector_str_result;
                 for(int i = 1; i < B.columns && !exit_code; i++){
                     for(int j = 0; j!=i && !exit_code; j++){
-                        if(B.matrix[i][j] != 0){
-                            mul = B.matrix[i][j]/B.matrix[i-1][j];
-                            exit_code = s21_mult_number(&B.matrix[i], mul, &vector_str.matrix[0]);
-                            if(!exit_code) exit_code = s21_sub_matrix(&B.matrix[i], &vector_str.matrix[0], &vector_str_result);
-                            if(!exit_code) s21_copy_matrix(&B.matrix[i], &vector_str_result);
+                        exit_code = s21_create_matrix(1, B.columns, &vector_str);
+                        if(B.matrix[i][j] != 0 && !exit_code){
+                            mul = B.matrix[i][j]/B.matrix[j][j];
+                            s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
+                            s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
                             s21_remove_matrix(&vector_str);
-                            s21_remove_matrix(&vector_str_result);
                         }
                     }
                 }
@@ -42,6 +43,6 @@ int s21_determinant(matrix_t *A, double *result){
             } 
         }
     }
-    
+
     return exit_code;
 }
