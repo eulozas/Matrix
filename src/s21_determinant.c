@@ -28,10 +28,15 @@ int s21_determinant(matrix_t *A, double *result){
                     for(int j = 0; j!=i && !exit_code; j++){
                         exit_code = s21_create_matrix(1, B.columns, &vector_str);
                         if(B.matrix[i][j] != 0 && !exit_code){
-                            mul = B.matrix[i][j]/B.matrix[j][j];
-                            s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
-                            s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
-                            s21_remove_matrix(&vector_str);
+                            if(B.matrix[j][j] == 0){
+                                s21_change_rows(i, j, &B);
+                                s21_mul_neg1(i, &B);
+                            }else{
+                                mul = B.matrix[i][j]/B.matrix[j][j];
+                                s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
+                                s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
+                                s21_remove_matrix(&vector_str);
+                            }
                         }
                     }
                 }

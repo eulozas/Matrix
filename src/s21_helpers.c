@@ -83,26 +83,41 @@ int zero_row_col_check(matrix_t *A){
     return exit_code;
 }
 
-int main(){
-    matrix_t A;
-    //matrix_t B;
-    matrix_t res;
-    double arr1[] = {8.0, 1.0, 7.0, 5.0, 0.0, 5.0, 4.0, 7.0, 5.0, 0.0, 5.0, 12.0, 2.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 7.0, 2.0, 2.0, 4.0, 1.0};
-    //double arr2[] = {1.1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0};
-    double result = 1;
-    double n = 2.0;
-
-    s21_create_matrix(5, 5, &A);
-    //s21_create_matrix(3, 3, &B);
-    s21_init_matrix(&A, arr1);
-   // s21_init_matrix(&B, arr2);
-    s21_print_matrix(&A);
-    printf("\n");
-    // s21_print_matrix(&B);
-    // printf("\n");
-
-    s21_determinant(&A, &result);
-    printf("%.2f\n", result);
-
-    return 0;
+void s21_change_rows(int rows1, int rows2, matrix_t *A){
+    double tmp;
+    for(int j = 0; j < A->columns; j++){
+        tmp = A->matrix[rows1][j];
+        A->matrix[rows1][j] = A->matrix[rows2][j];
+        A->matrix[rows2][j] = tmp;
+    }
 }
+
+void s21_mul_neg1(int rows, matrix_t *A){
+    for(int j = 0; j < A->columns; j++){
+         A->matrix[rows][j] *= -1;
+    }
+}
+
+// int main(){
+//     matrix_t A;
+//     //matrix_t B;
+//     matrix_t res;
+//     double arr1[] = {0.0, 1.0, 7.0, 5.0, 0.0, 5.0, 4.0, 7.0, 5.0, 0.0, 5.0, 12.0, 2.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 7.0, 2.0, 2.0, 4.0, 1.0};
+//     //double arr2[] = {1.1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0};
+//     double result = 1;
+//     double n = 2.0;
+
+//     s21_create_matrix(5, 5, &A);
+//     //s21_create_matrix(3, 3, &B);
+//     s21_init_matrix(&A, arr1);
+//    // s21_init_matrix(&B, arr2);
+//     s21_print_matrix(&A);
+//     printf("\n");
+//     // s21_print_matrix(&B);
+//     // printf("\n");
+
+//     s21_determinant(&A, &result);
+//     printf("%.2f\n", result);
+
+//     return 0;
+// }
