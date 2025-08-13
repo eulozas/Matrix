@@ -1,4 +1,5 @@
 #include "s21_matrix.h"
+#include "s21_helpers.h"
 
 int s21_calc_complements(matrix_t *A, matrix_t *result){
     if(!A || !result){
@@ -27,6 +28,7 @@ int s21_calc_complements(matrix_t *A, matrix_t *result){
                 }
             }
             s21_mul_compl(result);
+            s21_remove_matrix(&minor_matrix);
         }
     }
 

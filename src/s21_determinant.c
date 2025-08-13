@@ -44,6 +44,8 @@ int s21_determinant(matrix_t *A, double *result){
                 for(int i = 1; i < B.rows; i++){
                  *result *= B.matrix[i][i];
                 }
+                s21_print_matrix(&B);
+                printf("\n");
                 s21_remove_matrix(&B);
             } 
         }

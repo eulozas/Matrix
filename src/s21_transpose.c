@@ -1,4 +1,5 @@
 #include "s21_matrix.h"
+#include "s21_helpers.h"
 
 int s21_transpose(matrix_t *A, matrix_t *result){
     if(!A || !result){
