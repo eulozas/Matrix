@@ -17,12 +17,16 @@ int s21_calc_complements(matrix_t *A, matrix_t *result){
         }else{
             matrix_t minor_matrix;
             exit_code = s21_create_matrix( A->rows - 1, A->columns - 1, &minor_matrix);
-            //заполнить минорную матрицу
-            //найти детерминант
-            //записать в результ матрицу детерминант
-            //у нас есть матрица миноров, умножить ее жлементы на -1^(i+j).
+            double determinant;
 
-
+            for(int i = 0; i < A->rows; i++){
+                for(int j = 0; j < A->columns; j++){
+                    s21_init_minor_matrix(i, j, A, &minor_matrix);
+                    s21_determinant(&minor_matrix, &determinant);
+                    result->matrix[i][j] = determinant;
+                }
+            }
+            s21_mul_compl(result);
         }
     }
 
