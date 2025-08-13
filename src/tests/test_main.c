@@ -1,13 +1,14 @@
 #include <check.h>
 #include <stdlib.h>
 
-Suite *determinant_suite(void);
+Suite *create_suite(void);
+Suite *sum_suite(void);
 
 int main(void) {
   int number_failed = 0;
 
-  SRunner *sr = srunner_create(determinant_suite());
-  //srunner_add_suite(sr, from_int_to_decimal());
+  SRunner *sr = srunner_create(create_suite());
+  srunner_add_suite(sr, sum_suite());
 
 
   srunner_run_all(sr, CK_VERBOSE);
