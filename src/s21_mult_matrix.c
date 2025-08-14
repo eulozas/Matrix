@@ -10,9 +10,9 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result){
 
     if(A->columns != B->rows) exit_code = 2;
     
-    if(!exit_code) s21_create_matrix( A->rows, B->columns, result);
+    if(!exit_code) s21_create_matrix(A->rows, B->columns, result);
 
-    for(int i = 0; i < result->rows && !exit_code; i++){
+    for(int i = 0; !exit_code && i < result->rows; i++){
         for(int j = 0; j < result->columns; j++){
             result->matrix[i][j] = 0;
             int k = 0;

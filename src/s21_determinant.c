@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int s21_determinant(matrix_t *A, double *result){
-    if(!A || !result){
+    if(!is_valid_matrix(A)  || !result){
         return 1;
     }
 
@@ -19,33 +19,31 @@ int s21_determinant(matrix_t *A, double *result){
             *result = 0.0;
         }else{
             matrix_t B;
-            exit_code = s21_create_matrix(A->rows, A->columns, &B);
-            if(!exit_code){
-                s21_copy_matrix(A, &B);
-                double mul = 0;
-                matrix_t vector_str;
-                for(int i = 1; i < B.columns && !exit_code; i++){
-                    for(int j = 0; j!=i && !exit_code; j++){
-                        exit_code = s21_create_matrix(1, B.columns, &vector_str);
-                        if(B.matrix[i][j] != 0 && !exit_code){
-                            if(B.matrix[j][j] == 0){
-                                s21_change_rows(i, j, &B);
-                                s21_mul_neg1(i, &B);
-                            }else{
-                                mul = B.matrix[i][j]/B.matrix[j][j];
-                                s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
-                                s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
-                                s21_remove_matrix(&vector_str);
+            s21_create_matrix(A->rows, A->columns, &B);
+            s21_copy_matrix(A, &B);
+            double mul = 0;
+            matrix_t vector_str;
+            for(int i = 1; i < B.columns; i++){
+                for(int j = 0; j!=i; j++){
+                    s21_create_matrix(1, B.columns, &vector_str);
+                    if(B.matrix[i][j] != 0){
+                        if(B.matrix[j][j] == 0){
+                            s21_change_rows(i, j, &B);
+                            s21_mul_neg1(i, &B);
+                        }else{
+                            mul = B.matrix[i][j]/B.matrix[j][j];
+                            s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
+                            s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
+                            s21_remove_matrix(&vector_str);
                             }
                         }
                     }
                 }
-                *result = B.matrix[0][0];
-                for(int i = 1; i < B.rows; i++){
-                 *result *= B.matrix[i][i];
-                }
-                s21_remove_matrix(&B);
-            } 
+            *result = B.matrix[0][0];
+            for(int i = 1; i < B.rows; i++){
+                *result *= B.matrix[i][i];
+            }
+            s21_remove_matrix(&B); 
         }
     }
 
