@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int s21_determinant(matrix_t *A, double *result){
-    if(!is_valid_matrix(A)  || !result){
+    if(!is_valid_matrix(A) || !result){
         return 1;
     }
 

@@ -99,6 +99,51 @@ START_TEST(determinant_corr4) {
 }
 END_TEST
 
+START_TEST(determinant_corr5) {
+    matrix_t A;
+    double res;
+    double expected = 0.0;
+
+    s21_create_matrix(3, 3, &A);
+    double arr1[] = {0.0, 0.0, 0.0, 2.2, 7.8, 1.0, 5.56, 2.0, 7.0};
+    s21_init_matrix(&A, arr1);
+
+    ck_assert_int_eq(s21_determinant(&A, &res), 0); 
+    ck_assert_double_eq_tol(res, expected, EPS);
+    s21_remove_matrix(&A);
+}
+END_TEST
+
+START_TEST(determinant_corr6) {
+    matrix_t A;
+    double res;
+    double expected = -8.352;
+
+    s21_create_matrix(3, 3, &A);
+    double arr1[] = {0.56, 1.0, 1.0, 0.0, 7.8, 1.0, 5.56, 2.0, 7.0};
+    s21_init_matrix(&A, arr1);
+
+    ck_assert_int_eq(s21_determinant(&A, &res), 0); 
+    ck_assert_double_eq_tol(res, expected, EPS);
+    s21_remove_matrix(&A);
+}
+END_TEST
+
+START_TEST(determinant_corr7) {
+    matrix_t A;
+    double res;
+    double expected = -8.56;
+
+    s21_create_matrix(1, 1, &A);
+    double arr1[] = {-8.56};
+    s21_init_matrix(&A, arr1);
+
+    ck_assert_int_eq(s21_determinant(&A, &res), 0); 
+    ck_assert_double_eq_tol(res, expected, EPS);
+    s21_remove_matrix(&A);
+}
+END_TEST
+
 Suite *determinant_suite() {
   Suite *s = suite_create("s21_determinant");
   TCase *tc = tcase_create("Core");
@@ -112,6 +157,9 @@ Suite *determinant_suite() {
   tcase_add_test(tc, determinant_corr2);
   tcase_add_test(tc, determinant_corr3);
   tcase_add_test(tc, determinant_corr4);
+  tcase_add_test(tc, determinant_corr5);
+  tcase_add_test(tc, determinant_corr6);
+  tcase_add_test(tc, determinant_corr7);
 
   suite_add_tcase(s, tc);
   return s;
