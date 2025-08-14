@@ -1,1 +1,0 @@
-genhtml coverage_filtered.info --output-directory coverage --rc branch_coverage=1
