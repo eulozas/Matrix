@@ -156,10 +156,10 @@ START_TEST(eq_corr3) {
     matrix_t A;
     matrix_t B;
     s21_create_matrix(2, 2, &A);
-    double arr1[] = {0.0, 5.0, 0.0, 6.0, 3.0, 99999999565.0};
+    double arr1[] = {0.0, 5.0, 0.0, 6.0, 3.0, 99999999565.0000001};
     s21_init_matrix(&A, arr1);
     s21_create_matrix(2, 2, &B);
-    double arr2[] = {0.0, 5.0, 0.0, 6.0, 3.0, 99999999565.0};
+    double arr2[] = {0.0, 5.0, 0.0, 6.0, 3.0, 99999999565.0000009};
     s21_init_matrix(&B, arr2);
     ck_assert_int_eq(s21_eq_matrix(&A, &B), SUCCESS); 
     s21_remove_matrix(&A);

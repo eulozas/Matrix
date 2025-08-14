@@ -2,7 +2,7 @@
 #define S21_HELPERS_H
 #include "s21_matrix.h"
 
-int s21_is_zero_matrix(matrix_t *A);
+int is_valid_matrix(matrix_t *A);
 void s21_copy_matrix(matrix_t *A, matrix_t *B);
 void s21_init_matrix(matrix_t *A, double *arr);
 void s21_print_matrix(matrix_t *A);
