@@ -7,6 +7,7 @@ Suite *eq_suite(void);
 Suite *sum_suite(void);
 Suite *sub_suite(void);
 Suite *mult_num_suite(void);
+Suite *mult_suite(void);
 
 int main(void) {
   int number_failed = 0;
@@ -17,6 +18,7 @@ int main(void) {
   srunner_add_suite(sr, sum_suite());
   srunner_add_suite(sr, sub_suite());
   srunner_add_suite(sr, mult_num_suite());
+  srunner_add_suite(sr, mult_suite());
 
   srunner_run_all(sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed(sr);

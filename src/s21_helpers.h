@@ -5,7 +5,6 @@
 int is_valid_matrix(matrix_t *A);
 void s21_copy_matrix(matrix_t *A, matrix_t *B);
 void s21_init_matrix(matrix_t *A, double *arr);
-void s21_print_matrix(matrix_t *A);
 void s21_mult_number_str_matrix(matrix_t *A, int strA, double number, matrix_t *B, int strB);
 void s21_sub_matrix_str(matrix_t *A, int strA, matrix_t *B, int strB, matrix_t *result, int strRes);
 int zero_row_col_check(matrix_t *A);
