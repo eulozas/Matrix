@@ -132,36 +132,18 @@ void s21_clean_matrix(matrix_t *A){
 
 
 // int main(){
-//     matrix_t A;
+//      matrix_t A;
 //     matrix_t B;
-//     matrix_t res;
-//     double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0, 1.0, 1.0, 1.0};
-//     //double arr2[] = {1.1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0};
-//    double result;
-//     // double n = 2.0;
-
-//     s21_create_matrix(4, 3, &A);
-//     s21_create_matrix(4, 3, &B);
+//     s21_create_matrix(1, 1, &A);
+//     double arr1[] = {2.123456};
 //     s21_init_matrix(&A, arr1);
-
-//     B.matrix[0][0] = 2.0;
-//     B.matrix[0][1] = 5.0;
-//     B.matrix[0][2] = 7.0;
-//     B.matrix[1][0] = 6.0;
-//     B.matrix[1][1] = 3.0;
-//     B.matrix[1][2] = 4.0;
-//     B.matrix[2][0] = 5.0;
-//     B.matrix[2][1] = -2.0;
-//     B.matrix[2][2] = -3.0;
-//     B.matrix[3][0] = 1.0;
-//     B.matrix[3][1] = 1.0;
-//     B.matrix[3][2] = 1.0;
-  
-
-//    //s21_init_matrix(&B, arr2);
-//     s21_print_matrix(&A);
+//     s21_create_matrix(1, 1, &B);
+//     double arr2[] = {2.123456};
+//     s21_init_matrix(&B, arr2);
+     
+//     printf("%d", s21_eq_matrix(&A, &B));
 //     printf("\n");
-//     s21_print_matrix(&B);
+    
 
 //     //s21_determinant(&A, &result);
 //     //printf("%f\n", result);

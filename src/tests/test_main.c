@@ -3,13 +3,16 @@
 
 Suite *create_suite(void);
 Suite *remove_suite(void);
+Suite *eq_suite(void);
 Suite *sum_suite(void);
+
 
 int main(void) {
   int number_failed = 0;
 
   SRunner *sr = srunner_create(create_suite());
   srunner_add_suite(sr, remove_suite());
+  srunner_add_suite(sr, eq_suite());
   srunner_add_suite(sr, sum_suite());
 
 
