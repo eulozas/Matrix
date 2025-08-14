@@ -10,6 +10,7 @@ Suite *mult_num_suite(void);
 Suite *mult_suite(void);
 Suite *transpose_suite(void);
 Suite *determinant_suite(void);
+Suite *calc_complements_suite(void);
 
 int main(void) {
   int number_failed = 0;
@@ -23,6 +24,7 @@ int main(void) {
   srunner_add_suite(sr, mult_suite());
   srunner_add_suite(sr, transpose_suite());
   srunner_add_suite(sr, determinant_suite());
+  srunner_add_suite(sr, calc_complements_suite());
 
   srunner_run_all(sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed(sr);
