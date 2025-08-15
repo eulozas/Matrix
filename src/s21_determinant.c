@@ -34,9 +34,9 @@ int s21_determinant(matrix_t *A, double *result){
                             mul = B.matrix[i][j]/B.matrix[j][j];
                             s21_mult_number_str_matrix(&B, j, mul, &vector_str, 0);
                             s21_sub_matrix_str(&B, i, &vector_str, 0, &B, i);
-                            s21_remove_matrix(&vector_str);
                             }
                         }
+                        s21_remove_matrix(&vector_str);
                     }
                 }
             *result = B.matrix[0][0];

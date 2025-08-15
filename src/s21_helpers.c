@@ -110,6 +110,15 @@ void s21_mul_compl(matrix_t *A){
     }
 }
 
+void s21_mul_det(matrix_t *A, double det, matrix_t *res){
+    for(int i = 0; i < A->rows; i++){
+        for(int j = 0; j < A->columns; j++){
+            res->matrix[i][j]=A->matrix[i][j]*1.0/det;
+        }
+    }
+}
+
+
 // int main(){
 //     matrix_t A;
 //    // matrix_t B;

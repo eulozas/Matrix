@@ -24,9 +24,9 @@ int main(void) {
   srunner_add_suite(sr, mult_num_suite());
   srunner_add_suite(sr, mult_suite());
   srunner_add_suite(sr, transpose_suite());
-  //srunner_add_suite(sr, determinant_suite());
-  //srunner_add_suite(sr, calc_complements_suite());
-  //srunner_add_suite(sr, inverse_suite());
+  srunner_add_suite(sr, determinant_suite());
+  srunner_add_suite(sr, calc_complements_suite());
+  srunner_add_suite(sr, inverse_suite());
 
   srunner_run_all(sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed(sr);
