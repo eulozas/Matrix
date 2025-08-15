@@ -3,7 +3,7 @@
 
 int s21_calc_complements(matrix_t *A, matrix_t *result){
     if(!is_valid_matrix(A) || !result){
-    return 1;
+        return 1;
     }
 
     int exit_code = 0;
@@ -14,23 +14,14 @@ int s21_calc_complements(matrix_t *A, matrix_t *result){
     if(!exit_code){
         s21_create_matrix( A->rows, A->columns, result);
         if(result->rows == 1 && result->columns == 1){
-        result->matrix[0][0] = 1.0;
+            result->matrix[0][0] = 1.0;
         }else{
             matrix_t minor_matrix;
             s21_create_matrix( A->rows - 1, A->columns - 1, &minor_matrix);
-            double determinant;
-
-            for(int i = 0; i < A->rows; i++){
-                for(int j = 0; j < A->columns; j++){
-                    s21_init_minor_matrix(i, j, A, &minor_matrix);
-                    s21_determinant(&minor_matrix, &determinant);
-                    result->matrix[i][j] = determinant;
-                }
-            }
+            s21_minor_matrix(A, &minor_matrix, result);  
             s21_mul_compl(result);
             s21_remove_matrix(&minor_matrix);
         }
     }
-
     return exit_code;
 }

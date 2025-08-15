@@ -18,17 +18,16 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result){
         }else{
             double determinant;
             s21_determinant(A, &determinant);
-            if(fabs(determinant)>=EPS){
+            if(fabs(determinant) < EPS){
+                exit_code = 2;
+            }else{
                 matrix_t calc_matrix;
                 s21_calc_complements(A, &calc_matrix);
                 matrix_t transp_matrix;
                 s21_transpose(&calc_matrix, &transp_matrix);
                 s21_remove_matrix(&calc_matrix);
-                
                 s21_mul_det(&transp_matrix, determinant, result);
                 s21_remove_matrix(&transp_matrix);
-            }else{
-                exit_code = 2;
             }
         }
     }

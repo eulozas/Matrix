@@ -10,8 +10,11 @@ void s21_sub_matrix_str(matrix_t *A, int strA, matrix_t *B, int strB, matrix_t *
 int zero_row_col_check(matrix_t *A);
 void s21_change_rows(int rows1, int rows2, matrix_t *A);
 void s21_mul_neg1(int rows, matrix_t *A);
+void make_zero_element(int i, int j, matrix_t *A, matrix_t * vector_str);
+void transform_to_echelon_form(matrix_t *A);
 void s21_init_minor_matrix(int m, int n,  matrix_t *A,  matrix_t *minor_matrix);
 void s21_mul_compl(matrix_t *A);
+void s21_minor_matrix(matrix_t* A, matrix_t *minor, matrix_t* result);
 void s21_mul_det(matrix_t *A, double det, matrix_t *res);
 
 #endif
