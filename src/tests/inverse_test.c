@@ -11,8 +11,10 @@ START_TEST(inverse_incorr1) {
 END_TEST
 
 START_TEST(inverse_incorr2) {
-    matrix_t A = {0};
+    matrix_t A;
+    s21_create_matrix(1, 1, &A);
     ck_assert_int_eq(s21_inverse_matrix(&A, NULL), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 

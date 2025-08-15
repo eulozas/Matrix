@@ -13,8 +13,10 @@ END_TEST
 
 START_TEST(sum_incorr2) {
     matrix_t A = {0};
+    s21_create_matrix(1, 1, &A);
     matrix_t res;
     ck_assert_int_eq(s21_sum_matrix(&A, NULL, &res), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 
@@ -57,6 +59,17 @@ START_TEST(sum_incorr7) {
     s21_create_matrix(4, 4, &A);
     s21_create_matrix(4, 3, &B);
     ck_assert_int_eq(s21_sum_matrix(&A, &B, &res), 2);
+    s21_remove_matrix(&A);
+    s21_remove_matrix(&B);
+}
+END_TEST
+
+START_TEST(sum_incorr8) {
+    matrix_t A;
+    matrix_t B;
+    s21_create_matrix(4, 4, &A);
+    s21_create_matrix(4, 3, &B);
+    ck_assert_int_eq(s21_sum_matrix(&A, &B, NULL), 1);
     s21_remove_matrix(&A);
     s21_remove_matrix(&B);
 }
@@ -131,6 +144,7 @@ Suite *sum_suite() {
   tcase_add_test(tc, sum_incorr5);
   tcase_add_test(tc, sum_incorr6);
   tcase_add_test(tc, sum_incorr7);
+  tcase_add_test(tc, sum_incorr8);
   tcase_add_test(tc, sum_corr1);
   tcase_add_test(tc, sum_corr2);
 

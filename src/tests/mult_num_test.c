@@ -6,8 +6,10 @@
 
 START_TEST(mult_num_incorr1) {
     matrix_t A = {0};
+    s21_create_matrix(1, 1, &A);
     double n = 1.0;
     ck_assert_int_eq(s21_mult_number(&A, n, NULL), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 

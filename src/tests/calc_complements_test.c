@@ -5,14 +5,19 @@
 #include "../s21_helpers.h"
 
 START_TEST(calc_complements_incorr1) {
+    matrix_t A;
     matrix_t res;
+    s21_create_matrix(2, 2, &A);
     ck_assert_int_eq(s21_calc_complements(NULL, &res), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 
 START_TEST(calc_complements_incorr2) {
-    matrix_t A = {0};
+    matrix_t A;
+    s21_create_matrix(2, 2, &A);
     ck_assert_int_eq(s21_calc_complements(&A, NULL), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 

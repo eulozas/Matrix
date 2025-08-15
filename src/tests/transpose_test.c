@@ -5,8 +5,10 @@
 #include "../s21_helpers.h"
 
 START_TEST(transpose_incorr1) {
-    matrix_t A = {0};
+    matrix_t A;
+    s21_create_matrix(2, 2, &A);
     ck_assert_int_eq(s21_transpose(&A, NULL), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 

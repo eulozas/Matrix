@@ -6,8 +6,10 @@
 
 START_TEST(mult_incorr1) {
     matrix_t A = {0};
+    s21_create_matrix(1, 1, &A);
     matrix_t B = {0};
     ck_assert_int_eq(s21_mult_matrix(&A, &B, NULL), 1);
+    s21_remove_matrix(&A);
 }
 END_TEST
 
@@ -45,6 +47,17 @@ START_TEST(mult_incorr6) {
     s21_create_matrix(3, 3, &A);
     s21_create_matrix(4, 3, &B);
     ck_assert_int_eq(s21_mult_matrix(&A, &B, &res), 2);
+    s21_remove_matrix(&A);
+    s21_remove_matrix(&B);
+}
+END_TEST
+
+START_TEST(mult_incorr7) {
+    matrix_t A;
+    matrix_t B;
+    s21_create_matrix(3, 3, &A);
+    s21_create_matrix(3, 3, &B);
+    ck_assert_int_eq(s21_mult_matrix(&A, &B, NULL), 1);
     s21_remove_matrix(&A);
     s21_remove_matrix(&B);
 }
@@ -118,6 +131,7 @@ Suite *mult_suite() {
   tcase_add_test(tc, mult_incorr4);
   tcase_add_test(tc, mult_incorr5);
   tcase_add_test(tc, mult_incorr6);
+  tcase_add_test(tc, mult_incorr7);
   tcase_add_test(tc, mult_corr1);
   tcase_add_test(tc, mult_corr2);
 
