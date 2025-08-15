@@ -12,6 +12,5 @@ void s21_change_rows(int rows1, int rows2, matrix_t *A);
 void s21_mul_neg1(int rows, matrix_t *A);
 void s21_init_minor_matrix(int m, int n,  matrix_t *A,  matrix_t *minor_matrix);
 void s21_mul_compl(matrix_t *A);
-void s21_clean_matrix(matrix_t *A);
 
 #endif

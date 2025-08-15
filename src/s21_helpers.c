@@ -110,42 +110,33 @@ void s21_mul_compl(matrix_t *A){
     }
 }
 
-void s21_clean_matrix(matrix_t *A){
-    for(int i = 0; i < A->rows; i++){
-        for(int j = 0; j < A->columns; j++){
-            A->matrix[i][j] = 0.0;
-        }
-    }
-    A->rows = 0;
-    A->columns = 0;
-}
-
-
 // int main(){
-//      matrix_t A;
-//     matrix_t B;
-//     s21_create_matrix(1, 1, &A);
-//     double arr1[] = {2.123456};
+//     matrix_t A;
+//    // matrix_t B;
+//     s21_create_matrix(3, 3, &A);
+//     double arr1[] = {1.0, 2.0, 3.0, 0.0, 4.0, 2.0, 5.0, 2.0, 1.0};
 //     s21_init_matrix(&A, arr1);
-//     s21_create_matrix(1, 1, &B);
-//     double arr2[] = {2.123456};
-//     s21_init_matrix(&B, arr2);
+// //     s21_create_matrix(1, 1, &B);
+// //     double arr2[] = {2.123456};
+// //     s21_init_matrix(&B, arr2);
      
-//     printf("%d", s21_eq_matrix(&A, &B));
-//     printf("\n");
+// //     printf("%d", s21_eq_matrix(&A, &B));
+// //     printf("\n");
     
 
-//     //s21_determinant(&A, &result);
-//     //printf("%f\n", result);
+// //     //s21_determinant(&A, &result);
+// //     //printf("%f\n", result);
 
-//     //s21_calc_complements(&A, &res);
-//     //s21_print_matrix(&res);
-//     //printf("\n");
+// //     //s21_calc_complements(&A, &res);
+// //     //s21_print_matrix(&res);
+// //     //printf("\n");
 
-//     //matrix_t res1;
+// s21_print_matrix(&A);
+//   printf("\n");
+//     matrix_t res1;
 
-//     //s21_inverse_matrix(&A, &res1);
-//     //s21_print_matrix(&res1);
+//     s21_inverse_matrix(&A, &res1);
+//     s21_print_matrix(&res1);
 
 //     return 0;
 // }
