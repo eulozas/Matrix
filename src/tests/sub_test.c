@@ -82,17 +82,17 @@ START_TEST(sub_corr1) {
   matrix_t expected;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
+  const double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
   s21_init_matrix(&A, arr1);
 
   s21_create_matrix(3, 3, &B);
-  double arr2[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -4.0};
+  const double arr2[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -4.0};
   s21_init_matrix(&B, arr2);
 
   ck_assert_int_eq(s21_sub_matrix(&A, &B, &res), 0);
 
   s21_create_matrix(3, 3, &expected);
-  double arr3[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
+  const double arr3[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
   s21_init_matrix(&expected, arr3);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);
@@ -111,17 +111,17 @@ START_TEST(sub_corr2) {
   matrix_t expected;
 
   s21_create_matrix(1, 1, &A);
-  double arr1[] = {3.12345};
+  const double arr1[] = {3.12345};
   s21_init_matrix(&A, arr1);
 
   s21_create_matrix(1, 1, &B);
-  double arr2[] = {2.12345};
+  const double arr2[] = {2.12345};
   s21_init_matrix(&B, arr2);
 
   ck_assert_int_eq(s21_sub_matrix(&A, &B, &res), 0);
 
   s21_create_matrix(1, 1, &expected);
-  double arr3[] = {1.0};
+  const double arr3[] = {1.0};
   s21_init_matrix(&expected, arr3);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);

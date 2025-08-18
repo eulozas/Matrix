@@ -47,7 +47,7 @@ START_TEST(determinant_corr1) {
   double expected = -1.0;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
+  const double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -62,8 +62,8 @@ START_TEST(determinant_corr2) {
   double expected = -42.0;
 
   s21_create_matrix(4, 4, &A);
-  double arr1[] = {1.0, 2.0, 3.0, 4.0, 4.0, 5.0, 6.0, 6.0,
-                   7.0, 8.0, 9.0, 9.0, 1.0, 8.0, 1.0, 1.0};
+  const double arr1[] = {1.0, 2.0, 3.0, 4.0, 4.0, 5.0, 6.0, 6.0,
+                         7.0, 8.0, 9.0, 9.0, 1.0, 8.0, 1.0, 1.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -78,9 +78,9 @@ START_TEST(determinant_corr3) {
   double expected = 91.0;
 
   s21_create_matrix(5, 5, &A);
-  double arr1[] = {0.0, 1.0, 7.0,  5.0, 0.0, 5.0, 4.0, 7.0, 5.0,
-                   0.0, 5.0, 12.0, 2.0, 1.0, 0.0, 1.0, 1.0, 1.0,
-                   1.0, 0.0, 7.0,  2.0, 2.0, 4.0, 1.0};
+  const double arr1[] = {0.0, 1.0, 7.0,  5.0, 0.0, 5.0, 4.0, 7.0, 5.0,
+                         0.0, 5.0, 12.0, 2.0, 1.0, 0.0, 1.0, 1.0, 1.0,
+                         1.0, 0.0, 7.0,  2.0, 2.0, 4.0, 1.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -95,7 +95,7 @@ START_TEST(determinant_corr4) {
   double expected = -19.352;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {0.56, 1.0, 1.0, 2.2, 7.8, 1.0, 5.56, 2.0, 7.0};
+  const double arr1[] = {0.56, 1.0, 1.0, 2.2, 7.8, 1.0, 5.56, 2.0, 7.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -110,7 +110,7 @@ START_TEST(determinant_corr5) {
   double expected = 0.0;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {0.0, 0.0, 0.0, 2.2, 7.8, 1.0, 5.56, 2.0, 7.0};
+  const double arr1[] = {0.0, 0.0, 0.0, 2.2, 7.8, 1.0, 5.56, 2.0, 7.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -125,7 +125,7 @@ START_TEST(determinant_corr6) {
   double expected = -8.352;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {0.56, 1.0, 1.0, 0.0, 7.8, 1.0, 5.56, 2.0, 7.0};
+  const double arr1[] = {0.56, 1.0, 1.0, 0.0, 7.8, 1.0, 5.56, 2.0, 7.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);
@@ -140,7 +140,7 @@ START_TEST(determinant_corr7) {
   double expected = -8.56;
 
   s21_create_matrix(1, 1, &A);
-  double arr1[] = {-8.56};
+  const double arr1[] = {-8.56};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_determinant(&A, &res), 0);

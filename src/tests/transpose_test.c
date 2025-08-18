@@ -29,13 +29,13 @@ START_TEST(transpose_corr1) {
   matrix_t expected;
 
   s21_create_matrix(3, 3, &A);
-  double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
+  const double arr1[] = {2.0, 5.0, 7.0, 6.0, 3.0, 4.0, 5.0, -2.0, -3.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_transpose(&A, &res), 0);
 
   s21_create_matrix(3, 3, &expected);
-  double arr2[] = {2.0, 6.0, 5.0, 5.0, 3.0, -2.0, 7.0, 4.0, -3.0};
+  const double arr2[] = {2.0, 6.0, 5.0, 5.0, 3.0, -2.0, 7.0, 4.0, -3.0};
   s21_init_matrix(&expected, arr2);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);
@@ -52,13 +52,13 @@ START_TEST(transpose_corr2) {
   matrix_t expected;
 
   s21_create_matrix(1, 1, &A);
-  double arr1[] = {3.12345};
+  const double arr1[] = {3.12345};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_transpose(&A, &res), 0);
 
   s21_create_matrix(1, 1, &expected);
-  double arr2[] = {3.12345};
+  const double arr2[] = {3.12345};
   s21_init_matrix(&expected, arr2);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);
@@ -75,13 +75,13 @@ START_TEST(transpose_corr3) {
   matrix_t expected;
 
   s21_create_matrix(1, 2, &A);
-  double arr1[] = {1.0, 2.5};
+  const double arr1[] = {1.0, 2.5};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_transpose(&A, &res), 0);
 
   s21_create_matrix(2, 1, &expected);
-  double arr2[] = {1.0, 2.5};
+  const double arr2[] = {1.0, 2.5};
   s21_init_matrix(&expected, arr2);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);
@@ -98,13 +98,13 @@ START_TEST(transpose_corr4) {
   matrix_t expected;
 
   s21_create_matrix(2, 3, &A);
-  double arr1[] = {1.0, 2.0, 2.0, 5.0, 6.0, 7.0};
+  const double arr1[] = {1.0, 2.0, 2.0, 5.0, 6.0, 7.0};
   s21_init_matrix(&A, arr1);
 
   ck_assert_int_eq(s21_transpose(&A, &res), 0);
 
   s21_create_matrix(3, 2, &expected);
-  double arr2[] = {1.0, 5.0, 2.0, 6.0, 2.0, 7.0};
+  const double arr2[] = {1.0, 5.0, 2.0, 6.0, 2.0, 7.0};
   s21_init_matrix(&expected, arr2);
 
   ck_assert_int_eq(s21_eq_matrix(&res, &expected), SUCCESS);

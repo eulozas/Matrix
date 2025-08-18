@@ -20,8 +20,8 @@ END_TEST
 START_TEST(remove_corr1) {
   matrix_t A = {0};
   s21_create_matrix(4, 3, &A);
-  double arr1[] = {2.0, 5.0,  7.0,  6.0, 3.0, 4.0,
-                   5.0, -2.0, -3.0, 1.0, 1.0, 1.0};
+  const double arr1[] = {2.0, 5.0,  7.0,  6.0, 3.0, 4.0,
+                         5.0, -2.0, -3.0, 1.0, 1.0, 1.0};
   s21_init_matrix(&A, arr1);
 
   s21_remove_matrix(&A);
@@ -46,8 +46,8 @@ END_TEST
 START_TEST(remove_corr3) {
   matrix_t A = {0};
   s21_create_matrix(4, 3, &A);
-  double arr1[] = {2.0, 5.0,  7.0,  6.0, 3.0, 4.0,
-                   5.0, -2.0, -3.0, 1.0, 1.0, 1.0};
+  const double arr1[] = {2.0, 5.0,  7.0,  6.0, 3.0, 4.0,
+                         5.0, -2.0, -3.0, 1.0, 1.0, 1.0};
   s21_init_matrix(&A, arr1);
 
   s21_remove_matrix(&A);
