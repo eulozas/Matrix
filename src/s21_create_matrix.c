@@ -1,17 +1,17 @@
 #include "s21_matrix.h"
 
-int s21_create_matrix(int rows, int columns, matrix_t *result){
-    if(!result || rows <= 0 || columns <= 0){
-        return 1;
-    }
+int s21_create_matrix(int rows, int columns, matrix_t *result) {
+  if (!result || rows <= 0 || columns <= 0) {
+    return 1;
+  }
 
-    result->rows = rows;
-    result->columns = columns;
+  result->rows = rows;
+  result->columns = columns;
 
-    result->matrix = calloc(result->rows, sizeof(double *));
-    for(int i = 0; i < result->rows; i++){
-        result->matrix[i] = calloc(result->columns, sizeof(double));
-    }
+  result->matrix = calloc(result->rows, sizeof(double *));
+  for (int i = 0; i < result->rows; i++) {
+    result->matrix[i] = calloc(result->columns, sizeof(double));
+  }
 
-    return 0;
+  return 0;
 }

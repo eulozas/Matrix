@@ -1,18 +1,18 @@
-#include "s21_matrix.h"
 #include "s21_helpers.h"
+#include "s21_matrix.h"
 
-int s21_mult_number(matrix_t *A, double number, matrix_t *result){
-    if(!is_valid_matrix(A) || !result){
-        return 1;
+int s21_mult_number(matrix_t *A, double number, matrix_t *result) {
+  if (!is_valid_matrix(A) || !result) {
+    return 1;
+  }
+
+  s21_create_matrix(A->rows, A->columns, result);
+
+  for (int i = 0; i < result->rows; i++) {
+    for (int j = 0; j < result->columns; j++) {
+      result->matrix[i][j] = A->matrix[i][j] * number;
     }
+  }
 
-    s21_create_matrix(A->rows, A->columns , result);
-
-    for(int i = 0; i < result->rows; i++){
-        for(int j = 0; j < result->columns; j++){
-            result->matrix[i][j] = A->matrix[i][j] * number;
-        }
-    }
-
-    return 0;
+  return 0;
 }
