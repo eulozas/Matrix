@@ -6,13 +6,8 @@
 
 #include "s21_matrix.h"
 
-#define SUCCESS 1
-#define FAILURE 0
-#define EPS 1e-6
-
 int is_valid_matrix(const matrix_t *A);
 void s21_copy_matrix(matrix_t *A, matrix_t *B);
-void s21_init_matrix(matrix_t *A, const double *arr);
 void s21_mult_number_str_matrix(matrix_t *A, int strA, double number,
                                 matrix_t *B, int strB);
 void s21_sub_matrix_str(matrix_t *A, int strA, matrix_t *B, int strB,

@@ -1,8 +1,7 @@
 #include <check.h>
-#include <stdlib.h>
 
-#include "../s21_helpers.h"
 #include "../s21_matrix.h"
+#include "s21_test_helpers.h"
 
 START_TEST(remove_incorr1) { s21_remove_matrix(NULL); }
 END_TEST

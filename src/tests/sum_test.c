@@ -1,8 +1,7 @@
 #include <check.h>
-#include <stdlib.h>
 
-#include "../s21_helpers.h"
 #include "../s21_matrix.h"
+#include "s21_test_helpers.h"
 
 START_TEST(sum_incorr1) {
   matrix_t A = {0};

@@ -1,8 +1,7 @@
 #include <check.h>
-#include <stdlib.h>
 
-#include "../s21_helpers.h"
 #include "../s21_matrix.h"
+#include "s21_test_helpers.h"
 
 START_TEST(eq_incorr1) {
   matrix_t A = {0};
@@ -17,6 +16,14 @@ START_TEST(eq_incorr2) {
 END_TEST
 
 START_TEST(eq_incorr3) { ck_assert_int_eq(s21_eq_matrix(NULL, NULL), FAILURE); }
+END_TEST
+
+START_TEST(eq_incorr4) {
+  matrix_t A;
+  s21_create_matrix(1, 1, &A);
+  ck_assert_int_eq(s21_eq_matrix(&A, NULL), FAILURE);
+  s21_remove_matrix(&A);
+}
 END_TEST
 
 START_TEST(eq_corr_f1) {
@@ -219,6 +226,7 @@ Suite *eq_suite() {
   tcase_add_test(tc, eq_incorr1);
   tcase_add_test(tc, eq_incorr2);
   tcase_add_test(tc, eq_incorr3);
+  tcase_add_test(tc, eq_incorr4);
   tcase_add_test(tc, eq_corr_f1);
   tcase_add_test(tc, eq_corr_f2);
   tcase_add_test(tc, eq_corr_f3);

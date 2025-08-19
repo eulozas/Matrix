@@ -1,7 +1,7 @@
 #include <check.h>
-#include <stdlib.h>
 
 #include "../s21_matrix.h"
+#include "s21_test_helpers.h"
 
 START_TEST(create_incorr1) {
   ck_assert_int_eq(s21_create_matrix(1, 2, NULL), 1);

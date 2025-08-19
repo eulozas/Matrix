@@ -1,8 +1,7 @@
 #include <check.h>
-#include <stdlib.h>
 
-#include "../s21_helpers.h"
 #include "../s21_matrix.h"
+#include "s21_test_helpers.h"
 
 START_TEST(determinant_incorr1) {
   double res;
@@ -149,6 +148,21 @@ START_TEST(determinant_corr7) {
 }
 END_TEST
 
+START_TEST(determinant_corr8) {
+  matrix_t A;
+  double res;
+  double expected = 0.0;
+
+  s21_create_matrix(2, 2, &A);
+  const double arr1[] = {0.0, 1.0, 0.0, 1.0};
+  s21_init_matrix(&A, arr1);
+
+  ck_assert_int_eq(s21_determinant(&A, &res), 0);
+  ck_assert_double_eq_tol(res, expected, EPS);
+  s21_remove_matrix(&A);
+}
+END_TEST
+
 Suite *determinant_suite() {
   Suite *s = suite_create("s21_determinant");
   TCase *tc = tcase_create("Core");
@@ -165,6 +179,7 @@ Suite *determinant_suite() {
   tcase_add_test(tc, determinant_corr5);
   tcase_add_test(tc, determinant_corr6);
   tcase_add_test(tc, determinant_corr7);
+  tcase_add_test(tc, determinant_corr8);
 
   suite_add_tcase(s, tc);
   return s;

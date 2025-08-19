@@ -12,14 +12,6 @@ void s21_copy_matrix(matrix_t *A, matrix_t *B) {
   }
 }
 
-void s21_init_matrix(matrix_t *A, const double *arr) {
-  for (int i = 0; i < A->rows; i++) {
-    for (int j = 0; j < A->columns; j++) {
-      A->matrix[i][j] = arr[i * A->columns + j];
-    }
-  }
-}
-
 void s21_mult_number_str_matrix(matrix_t *A, int strA, double number,
                                 matrix_t *B, int strB) {
   for (int i = 0; i < A->columns; i++) {
