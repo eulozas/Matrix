@@ -110,4 +110,4 @@ clean:
 	rm -rf coverage
 
 format:
-	clang-format -i -style=Google *.c *.h tests/*.c
+	clang-format -i -style=Google *.c *.h tests/*.c tests/*.h
