@@ -32,7 +32,7 @@ int zero_row_col_check(const matrix_t *A) {
   for (int i = 0; i < A->rows && !exit_code; i++) {
     int count_zero_in_row = 0;
     for (int j = 0; j < A->columns; j++) {
-      if (fabs(A->matrix[i][j]) <= EPS) {
+      if (A->matrix[i][j] == 0.0) {
         count_zero_in_row++;
       }
     }
@@ -44,7 +44,7 @@ int zero_row_col_check(const matrix_t *A) {
   for (int i = 0; i < A->columns && !exit_code; i++) {
     int count_zero_in_column = 0;
     for (int j = 0; j < A->rows; j++) {
-      if (fabs(A->matrix[j][i]) <= EPS) {
+      if (A->matrix[j][i] == 0.0) {
         count_zero_in_column++;
       }
     }

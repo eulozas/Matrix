@@ -219,6 +219,22 @@ START_TEST(eq_corr6) {
 }
 END_TEST
 
+START_TEST(eq_corr7) {
+  matrix_t A;
+  matrix_t B;
+  s21_create_matrix(2, 2, &A);
+  const double arr1[] = {1.000003, 2.0, 3.0, 4.0};
+  s21_init_matrix(&A, arr1);
+  s21_create_matrix(2, 2, &B);
+  const double arr2[] = {1.000004, 2.0, 3.0, 4.0};
+  s21_init_matrix(&B, arr2);
+
+  ck_assert_int_eq(s21_eq_matrix(&A, &B), SUCCESS);
+  s21_remove_matrix(&A);
+  s21_remove_matrix(&B);
+}
+END_TEST
+
 Suite *eq_suite() {
   Suite *s = suite_create("s21_eq");
   TCase *tc = tcase_create("Core");
@@ -240,6 +256,7 @@ Suite *eq_suite() {
   tcase_add_test(tc, eq_corr4);
   tcase_add_test(tc, eq_corr5);
   tcase_add_test(tc, eq_corr6);
+  tcase_add_test(tc, eq_corr7);
 
   suite_add_tcase(s, tc);
   return s;

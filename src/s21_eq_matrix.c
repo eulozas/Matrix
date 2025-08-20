@@ -14,7 +14,7 @@ int s21_eq_matrix(matrix_t *A, matrix_t *B) {
 
   for (int i = 0; exit_code && i < A->rows; i++) {
     for (int j = 0; exit_code && j < A->columns; j++) {
-      if (fabs(A->matrix[i][j] - B->matrix[i][j]) >= EPS) {
+      if (fabs(A->matrix[i][j] - B->matrix[i][j]) > EPS) {
         exit_code = FAILURE;
       }
     }
